@@ -47,6 +47,27 @@ public:
     double purchaseStockupdate();
     void updateAccfile();
 };
+void Accessories ::chk_accessories()
+{
+    bool available = false;
+    cout << "Enter the name of Accessories and press Enter: ";
+    cin >> acc_name;
+    for (int i = 0; i < 20; i++)
+    {
+        if (a1[i].name == acc_name && a1[i].Qty > 0)
+        {
+            cout << "\t\t\t\t\t Available" << endl;
+            AccessoriesBasket[AccItemCount] = acc_name;
+            AccItemCount++;
+            available = true;
+            break;
+        }
+    }
+    if (!available)
+    {
+        cout << "\t\t\t\t\t Not Available" << endl;
+    }
+}
 void Accessories ::updateAccfile()
 {
     ofstream outFile("accessories.txt"); // overwrite//
